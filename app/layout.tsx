@@ -40,7 +40,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <div className="max-w-[800px] w-full flex flex-col align-center">
+          <div className="max-w-[1024px] w-full flex flex-col align-center">
             {children}
           </div>
         </main>
