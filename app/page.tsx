@@ -6,7 +6,6 @@ import design3 from "../components/icons/design3.svg";
 import design4 from "../components/icons/design4.svg";
 import design5 from "../components/icons/design5.svg";
 import design6 from "../components/icons/design6.svg";
-import proposalImage from "../components/images/d9b9ffd87d75c34379599275085d6941.png";
 import Link from "next/link";
 import { getProposals } from "@/app/get-proposals";
 
