@@ -6,6 +6,9 @@ import { redirect } from "next/navigation";
 import { generateProposal } from "./generate-proposal";
 import { useState } from "react";
 import Loader from "./loader";
+import AddIcon from "@/components/icons/add.svg";
+import WandIcon from "@/components/icons/wand.svg";
+import Image from "next/image";
 
 export default function NewProposal() {
   const [counter, setCounter] = useState<string[]>(["23432"]);
@@ -24,7 +27,7 @@ export default function NewProposal() {
       >
         <Loader>
           <label className="block mb-6">
-            <span className="block mb-1">Name</span>
+            <span className="block mb-1 font-medium">Name</span>
             <input
               type="text"
               name="name"
@@ -33,7 +36,7 @@ export default function NewProposal() {
             />
           </label>
           <label className="block mb-6">
-            <span className="block mb-1">Call transcripts</span>
+            <span className="block mb-1 font-medium">Call transcripts</span>
             <div className="flex flex-col gap-1">
               {counter.map((id, index) => (
                 <div key={id}>
@@ -69,11 +72,16 @@ export default function NewProposal() {
               }}
               className="px-3 py-1 text-indigo-500"
             >
-              Add transcript
+              <div className="flex">
+                <Image src={AddIcon} alt="add" height={16} />
+                Add transcript
+              </div>
             </button>
           </label>
           <label className="block mb-6">
-            <span className="block mb-1">Additional information</span>
+            <span className="block mb-1 font-medium">
+              Additional information
+            </span>
             <textarea
               name="info"
               rows={4}
@@ -96,7 +104,7 @@ function Button() {
       disabled:animate-pulse disabled:hover:bg-indigo-300 disabled:hover:cursor-not-allowed"
       disabled={pending}
     >
-      Generate proposal
+      <div className="flex gap-2">Generate proposal</div>
     </button>
   );
 }
