@@ -75,6 +75,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      aspectRatio: {
+        a4: "210 / 297",
+      },
+      fontFamily: {
+        platform: ["var(--font-platform)"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

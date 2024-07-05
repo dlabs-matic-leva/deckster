@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import logo from "@/components/icons/logo.svg";
 import profile from "@/components/images/1654256336528 1.png";
 import bell from "@/components/icons/bell.svg";
-
-const inter = Inter({ subsets: ["latin"] });
+import { cn } from "@/lib/utils";
+import { inter, platform } from "@/components/fonts/fonts";
 
 export const metadata: Metadata = {
   title: "Deckster",
@@ -20,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="flex min0-h-screen flex-col items-start justify-start p-24">
-          <div className="flex w-full justify-between">
+      <body className={cn([inter.className, platform.variable])}>
+        <main className="flex min0-h-screen flex-col items-start justify-start p-24 print:p-0">
+          <div className="flex w-full justify-between print:hidden">
             <Image priority src={logo} alt="Deckster logo" />
             <div className="flex gap-3">
               <div className="border rounded-full p-1 pr-4 flex gap-2 items-center">

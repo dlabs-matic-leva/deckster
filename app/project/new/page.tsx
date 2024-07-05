@@ -23,7 +23,6 @@ export default function NewProposal() {
           <input
             type="text"
             name="name"
-            value="Butterflye proposal"
             required
             className="border rounded-lg px-2 py-2"
           />
