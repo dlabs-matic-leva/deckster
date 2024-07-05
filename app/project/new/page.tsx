@@ -26,7 +26,7 @@ export default function NewProposal() {
             type="text"
             name="name"
             required
-            className="border rounded-lg px-2 py-2 w-80"
+            className="border rounded-lg px-2 py-2 w-80 invalid:border-red-500"
           />
         </label>
         <label className="block mb-6">
@@ -38,7 +38,7 @@ export default function NewProposal() {
                   type="text"
                   name="transcript"
                   required
-                  className="border rounded-lg px-2 py-2 w-80"
+                  className="border rounded-lg px-2 py-2 w-80 invalid:border-red-500"
                 />
                 {counter.length > 1 && (
                   <button
@@ -68,6 +68,14 @@ export default function NewProposal() {
           >
             Add transcript
           </button>
+        </label>
+        <label className="block mb-6">
+          <span className="block mb-1">Additional information</span>
+          <textarea
+            name="info"
+            rows={4}
+            className="border rounded-lg px-2 py-2 w-80 invalid:border-red-500"
+          />
         </label>
         <Button />
       </form>
