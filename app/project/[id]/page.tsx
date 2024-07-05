@@ -33,7 +33,11 @@ export default async function PreviewProposal({
       </div>
       <div className="flex flex-col gap-10 w-full print:gap-0">
         <Page noPadding className={"relative"}>
-          <Image src={coverPage} alt={"Cover page"} className="w-full" />
+          <Image
+            src={coverPage}
+            alt={"Cover page"}
+            className="w-full aspect-a4"
+          />
           <div className="absolute font-platform text-3xl text-white top-[66%] left-[7%]">
             {data.name}
           </div>
@@ -48,17 +52,33 @@ export default async function PreviewProposal({
             })()}
           </div>
         </Page>
-        <Page noPadding className={"relative"}>
-          <Image src={coverPage3} alt={"Cover page"} className="w-full" />
+        <Page noPadding>
+          <Image
+            src={coverPage3}
+            alt={"Cover page"}
+            className="w-full aspect-a4"
+          />
         </Page>
-        <Page noPadding className={"relative"}>
-          <Image src={coverPage4} alt={"Cover page"} className="w-full" />
+        <Page noPadding>
+          <Image
+            src={coverPage4}
+            alt={"Cover page"}
+            className="w-full aspect-a4"
+          />
         </Page>
-        <Page noPadding className={"relative"}>
-          <Image src={coverPage5} alt={"Cover page"} className="w-full" />
+        <Page noPadding>
+          <Image
+            src={coverPage5}
+            alt={"Cover page"}
+            className="w-full aspect-a4"
+          />
         </Page>
-        <Page noPadding className={"relative"}>
-          <Image src={coverPage6} alt={"Cover page"} className="w-full" />
+        <Page noPadding>
+          <Image
+            src={coverPage6}
+            alt={"Cover page"}
+            className="w-full aspect-a4"
+          />
         </Page>
         <Page>
           <div className="flex justify-between text-sm text-gray-900">
@@ -191,7 +211,11 @@ export default async function PreviewProposal({
           <Image priority src={logo} alt="Dlabs logo" />
         </Page>
         <Page noPadding>
-          <Image src={endPage} alt={"End page"} />
+          <Image
+            src={endPage}
+            alt={"End page"}
+            className={"w-full aspect-a4"}
+          />
         </Page>
       </div>
     </>
