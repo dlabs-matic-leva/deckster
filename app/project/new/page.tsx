@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
 import { generateProposal } from "./generate-proposal";
+import { useState } from "react";
 
 export default function NewProposal() {
+  const [counter, setCounter] = useState<string[]>(["23432"]);
   return (
     <>
       <div className="flex gap-1 text-2xs text-muted-foreground mt-7">
@@ -30,27 +32,37 @@ export default function NewProposal() {
         <label className="block mb-6">
           <span className="block mb-1">Call transcripts</span>
           <div className="flex flex-col gap-1">
-            <input
-              type="text"
-              name="transcript"
-              required
-              className="border rounded-lg px-2 py-2 w-80"
-            />
-            <template data-insert></template>
+            {counter.map((id, index) => (
+              <div key={id}>
+                <input
+                  type="text"
+                  name="transcript"
+                  required
+                  className="border rounded-lg px-2 py-2 w-80"
+                />
+                {counter.length > 1 && (
+                  <button
+                    type={"button"}
+                    className="px-3 py-1 text-indigo-500"
+                    onClick={() => {
+                      setCounter((prevState) =>
+                        prevState.filter((_, i) => i !== index),
+                      );
+                    }}
+                  >
+                    -
+                  </button>
+                )}
+              </div>
+            ))}
           </div>
           <button
             type="button"
             onClick={function () {
-              const div = document.createElement("div");
-              div.innerHTML = `<input
-                type="text"
-                name="transcript"
-                required
-                class="border rounded-lg px-2 py-2 w-80"
-              />`;
-              const input = div.querySelector("input")!;
-              const button = document.querySelector("template[data-insert]")!;
-              button.parentElement!.insertBefore(input, button);
+              setCounter((prevState) => [
+                ...prevState,
+                Math.random().toString(),
+              ]);
             }}
             className="px-3 py-1 text-indigo-500"
           >
