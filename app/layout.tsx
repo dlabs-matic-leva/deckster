@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 import Image from "next/image";
 import logo from "@/components/icons/logo.svg";
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body className={cn([inter.className, platform.variable])}>
         <main className="flex min-h-screen flex-col items-center justify-start p-24 print:p-0">
           <div className="flex w-full justify-between print:hidden">
-            <Image priority src={logo} alt="Deckster logo" />
+            <Link href={"/"}>
+              <Image priority src={logo} alt="Deckster logo" />
+            </Link>
             <div className="flex gap-3">
               <div className="border rounded-full p-1 pr-4 flex gap-2 items-center">
                 <Image
