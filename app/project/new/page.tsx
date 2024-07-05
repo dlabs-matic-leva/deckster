@@ -5,6 +5,7 @@ import { useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
 import { generateProposal } from "./generate-proposal";
 import { useState } from "react";
+import Loader from "./loader";
 
 export default function NewProposal() {
   const [counter, setCounter] = useState<string[]>(["23432"]);
@@ -21,64 +22,66 @@ export default function NewProposal() {
         }}
         className="max-w-[500px] w-full m-auto flex flex-col items-stretch mt-20"
       >
-        <label className="block mb-6">
-          <span className="block mb-1">Name</span>
-          <input
-            type="text"
-            name="name"
-            required
-            className="border rounded-lg px-2 py-2 w-full"
-          />
-        </label>
-        <label className="block mb-6">
-          <span className="block mb-1">Call transcripts</span>
-          <div className="flex flex-col gap-1">
-            {counter.map((id, index) => (
-              <div key={id}>
-                <input
-                  type="text"
-                  name="transcript"
-                  required
-                  className="border rounded-lg px-2 py-2 w-full"
-                />
-                {counter.length > 1 && (
-                  <button
-                    type={"button"}
-                    className="px-3 py-1 text-indigo-500"
-                    onClick={() => {
-                      setCounter((prevState) =>
-                        prevState.filter((_, i) => i !== index),
-                      );
-                    }}
-                  >
-                    -
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={function () {
-              setCounter((prevState) => [
-                ...prevState,
-                Math.random().toString(),
-              ]);
-            }}
-            className="px-3 py-1 text-indigo-500"
-          >
-            Add transcript
-          </button>
-        </label>
-        <label className="block mb-6">
-          <span className="block mb-1">Additional information</span>
-          <textarea
-            name="info"
-            rows={4}
-            className="border rounded-lg px-2 py-2 w-full"
-          />
-        </label>
-        <Button />
+        <Loader>
+          <label className="block mb-6">
+            <span className="block mb-1">Name</span>
+            <input
+              type="text"
+              name="name"
+              required
+              className="border rounded-lg px-2 py-2 w-full"
+            />
+          </label>
+          <label className="block mb-6">
+            <span className="block mb-1">Call transcripts</span>
+            <div className="flex flex-col gap-1">
+              {counter.map((id, index) => (
+                <div key={id}>
+                  <input
+                    type="text"
+                    name="transcript"
+                    required
+                    className="border rounded-lg px-2 py-2 w-full"
+                  />
+                  {counter.length > 1 && (
+                    <button
+                      type={"button"}
+                      className="px-3 py-1 text-indigo-500"
+                      onClick={() => {
+                        setCounter((prevState) =>
+                          prevState.filter((_, i) => i !== index),
+                        );
+                      }}
+                    >
+                      -
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={function () {
+                setCounter((prevState) => [
+                  ...prevState,
+                  Math.random().toString(),
+                ]);
+              }}
+              className="px-3 py-1 text-indigo-500"
+            >
+              Add transcript
+            </button>
+          </label>
+          <label className="block mb-6">
+            <span className="block mb-1">Additional information</span>
+            <textarea
+              name="info"
+              rows={4}
+              className="border rounded-lg px-2 py-2 w-full"
+            />
+          </label>
+          <Button />
+        </Loader>
       </form>
     </>
   );
