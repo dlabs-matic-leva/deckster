@@ -104,7 +104,7 @@ function Button() {
       disabled:animate-pulse disabled:hover:bg-indigo-300 disabled:hover:cursor-not-allowed"
       disabled={pending}
     >
-      <div className="flex gap-2">Generate proposal</div>
+      Generate proposal
     </button>
   );
 }
