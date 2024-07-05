@@ -13,6 +13,7 @@ import arrow from "@/components/icons/arrow.svg";
 import price from "@/components/icons/price.svg";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import Print from "./print";
 
 export default async function PreviewProposal({
   params: { id },
@@ -27,13 +28,16 @@ export default async function PreviewProposal({
         <Link href="/">Home</Link>
       </div>
       <h1 className="mt-3 mb-10 text-2xl/9 print:hidden">{data.name}</h1>
+      <div className="flex justify-end print:hidden">
+        <Print />
+      </div>
       <div className="flex flex-col gap-10 w-full print:gap-0">
         <Page noPadding className={"relative"}>
           <Image src={coverPage} alt={"Cover page"} className="w-full" />
-          <div className="absolute font-platform text-5xl text-white top-[66%] left-[7%]">
+          <div className="absolute font-platform text-3xl text-white top-[66%] left-[7%]">
             {data.name}
           </div>
-          <div className="absolute font-platform text-3xl text-white top-[92.5%] left-[82.5%]">
+          <div className="absolute font-platform text-2xl text-white top-[92.5%] right-[6%]">
             {(() => {
               const date = new Date();
               date.setTime(Date.parse(data.createdAt));
@@ -207,7 +211,7 @@ function Page({
     <div
       className={cn([
         className,
-        "aspect-a4 w-full p-10 drop-shadow-xl bg-white flex flex-col",
+        "aspect-a4 w-full p-10 drop-shadow-xl bg-white flex flex-col print:drop-shadow-0 overflow-hidden",
         { "p-0": noPadding },
       ])}
     >

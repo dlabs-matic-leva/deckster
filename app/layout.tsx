@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn([inter.className, platform.variable])}>
-        <main className="flex min0-h-screen flex-col items-start justify-start p-24 print:p-0">
+        <main className="flex min-h-screen flex-col items-center justify-start p-24 print:p-0">
           <div className="flex w-full justify-between print:hidden">
             <Image priority src={logo} alt="Deckster logo" />
             <div className="flex gap-3">
@@ -40,7 +40,9 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          {children}
+          <div className="max-w-[800px] w-full flex flex-col align-center">
+            {children}
+          </div>
         </main>
       </body>
     </html>

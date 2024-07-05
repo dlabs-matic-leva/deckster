@@ -19,6 +19,7 @@ export default function NewProposal() {
           const id = await generateProposal(data);
           redirect(`/project/${id}`);
         }}
+        className="max-w-[500px] w-full m-auto flex flex-col items-stretch mt-20"
       >
         <label className="block mb-6">
           <span className="block mb-1">Name</span>
@@ -26,7 +27,7 @@ export default function NewProposal() {
             type="text"
             name="name"
             required
-            className="border rounded-lg px-2 py-2 w-80 invalid:border-red-500"
+            className="border rounded-lg px-2 py-2 w-full"
           />
         </label>
         <label className="block mb-6">
@@ -38,7 +39,7 @@ export default function NewProposal() {
                   type="text"
                   name="transcript"
                   required
-                  className="border rounded-lg px-2 py-2 w-80 invalid:border-red-500"
+                  className="border rounded-lg px-2 py-2 w-full"
                 />
                 {counter.length > 1 && (
                   <button
@@ -74,7 +75,7 @@ export default function NewProposal() {
           <textarea
             name="info"
             rows={4}
-            className="border rounded-lg px-2 py-2 w-80 invalid:border-red-500"
+            className="border rounded-lg px-2 py-2 w-full"
           />
         </label>
         <Button />
