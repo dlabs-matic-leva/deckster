@@ -256,3 +256,14 @@ function Li({ children }: { children: ReactNode }) {
     </li>
   );
 }
+
+export async function generateMetadata({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
+  const data = await getProposal(id);
+  return {
+    title: data.name,
+  };
+}
