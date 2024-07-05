@@ -104,7 +104,10 @@ function Button() {
       disabled:animate-pulse disabled:hover:bg-indigo-300 disabled:hover:cursor-not-allowed"
       disabled={pending}
     >
-      Generate proposal
+      <div className="flex justify-center items-center gap-2">
+        <Image src={WandIcon} alt="wand" height={24} />
+        Generate proposal
+      </div>
     </button>
   );
 }
