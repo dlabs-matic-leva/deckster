@@ -24,8 +24,38 @@ export default function NewProposal() {
             type="text"
             name="name"
             required
-            className="border rounded-lg px-2 py-2"
+            className="border rounded-lg px-2 py-2 w-80"
           />
+        </label>
+        <label className="block mb-6">
+          <span className="block mb-1">Call transcripts</span>
+          <div className="flex flex-col gap-1">
+            <input
+              type="text"
+              name="transcript"
+              required
+              className="border rounded-lg px-2 py-2 w-80"
+            />
+            <template data-insert></template>
+          </div>
+          <button
+            type="button"
+            onClick={function () {
+              const div = document.createElement("div");
+              div.innerHTML = `<input
+                type="text"
+                name="transcript"
+                required
+                class="border rounded-lg px-2 py-2 w-80"
+              />`;
+              const input = div.querySelector("input")!;
+              const button = document.querySelector("template[data-insert]")!;
+              button.parentElement!.insertBefore(input, button);
+            }}
+            className="px-3 py-1 text-indigo-500"
+          >
+            Add transcript
+          </button>
         </label>
         <Button />
       </form>

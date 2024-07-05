@@ -1,4 +1,4 @@
-export const transcript = `0:00 - Luka Leskovsek
+0:00 - Luka Leskovsek
 Hi guys.
 
 0:02 - Aleš Zorc
@@ -243,4 +243,4 @@ Another problem. It's still, it was valuable because now we have a direction, ri
 And next time, I can come with my team in order to maybe discuss, sorry, my English maybe is not professional, but my team, they speak much better.
 
 32:46 - Doug Barr (D.Labs)
-And maybe you'll understood. Okay. Okay.`;
+And maybe you'll understood. Okay. Okay.
